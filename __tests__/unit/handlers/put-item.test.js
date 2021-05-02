@@ -36,6 +36,11 @@ describe('Test putItemHandler', () => {
         const result = await lambda.putItemHandler(event);
         const expectedResult = {
             statusCode: 200,
+            headers: {
+            "Access-Control-Allow-Headers" : "Content-Type",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
+        },
             body: event.body,
         };
 
