@@ -27,6 +27,20 @@ Parameters:
 # Resources declares the AWS resources that you want to include in the stack
 # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html
 Resources:
+  Api3N:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: Prod
+      Cors:
+        AllowOrigin: "'*'"
+        AllowHeaders: "'Content-Type'"
+        AllowMethods: "'OPTIONS,POST,GET'"
+      Auth:
+        DefaultAuthorizer: CognitoAuthorizer3N
+        Authorizers:
+          CognitoAuthorizer3N:
+            UserPoolArn: !GetAtt CognitoUserPool3N.Arn
+
   # Each Lambda function is defined by properties:
   # https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 
@@ -49,16 +63,12 @@ Resources:
         Variables:
           # Make table name accessible as environment variable from function code during execution
           SAMPLE_TABLE: !Ref SampleTable
-      Auth:
-        DefaultAuthorizer: CognitoAuthorizer3N
-        Authorizers:
-          CognitoAuthorizer3N:
-            UserPoolArn: !GetAtt CognitoUserPool3N.Arn
       Events:
         Api:
           Type: Api
           Properties:
-            Path: /MyResource
+            RestApiId: !Ref Api3N
+            Path: /
             Method: GET
 
   # Each Lambda function is defined by properties:
