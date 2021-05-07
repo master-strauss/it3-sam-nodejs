@@ -31,7 +31,10 @@ Resources:
     Type: AWS::Serverless::Api
     Properties:
       StageName: Prod
-      Cors: "'*'"
+      Cors:
+        AllowOrigin: "'*'"
+        AllowHeaders: "'Content-Type'"
+        AllowMethods: "'OPTIONS,POST,GET'"
       Auth:
         DefaultAuthorizer: CognitoAuthorizer3N
         Authorizers:
