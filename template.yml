@@ -31,10 +31,7 @@ Resources:
     Type: AWS::Serverless::Api
     Properties:
       StageName: Prod
-      Cors:
-        AllowOrigin: "'*'"
-        AllowHeaders: "'Content-Type'"
-        AllowMethods: "'OPTIONS,POST,GET'"
+      Cors: "'*'"
       Auth:
         DefaultAuthorizer: CognitoAuthorizer3N
         Authorizers:
@@ -70,6 +67,8 @@ Resources:
             RestApiId: !Ref Api3N
             Path: /
             Method: GET
+            RequestParameters:
+              - method.request.header.Authorization
 
   # Each Lambda function is defined by properties:
   # https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
