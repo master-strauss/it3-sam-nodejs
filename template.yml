@@ -68,7 +68,7 @@ Resources:
           Type: Api
           Properties:
             RestApiId: !Ref Api3N
-            Path: /MyResource
+            Path: /
             Method: GET
 
   # Each Lambda function is defined by properties:
@@ -96,7 +96,7 @@ Resources:
         Api:
           Type: Api
           Properties:
-            Path: /MyResource/{id}
+            Path: /{id}
             Method: GET
   # Each Lambda function is defined by properties:
   # https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -123,7 +123,7 @@ Resources:
         Api:
           Type: Api
           Properties:
-            Path: /MyResource
+            Path: /
             Method: POST
   # Simple syntax to create a DynamoDB table with a single attribute primary key, more in
   # https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesssimpletable
