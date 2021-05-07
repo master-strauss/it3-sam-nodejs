@@ -139,6 +139,7 @@ Resources:
         ReadCapacityUnits: 2
         WriteCapacityUnits: 2
 
+  # Cognito User Pool for API Gateway
   CognitoUserPool3N:
     Type: AWS::Cognito::UserPool
     Properties:
@@ -152,6 +153,7 @@ Resources:
           Name: email
           Required: false
 
+  # Cognito User Pool Client for API Gateway
   CognitoUserPoolClient3N:
     Type: AWS::Cognito::UserPoolClient
     Properties:
