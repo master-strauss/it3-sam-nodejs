@@ -72,7 +72,6 @@ Resources:
               gatewayresponse.header.Access-Control-Allow-Headers: "'*'"
               gatewayresponse.header.Access-Control-Allow-Methods: "'*'"
               gatewayresponse.header.Access-Control-Allow-Credentials: "'*'"
-            StatusCode: '200'
 
   # Each Lambda function is defined by properties:
   # https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
