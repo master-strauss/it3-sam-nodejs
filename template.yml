@@ -96,7 +96,6 @@ Resources:
         Api:
           Type: Api
           Properties:
-            RestApiId: !Ref Api3N
             Path: /{id}
             Method: GET
   # Each Lambda function is defined by properties:
@@ -124,7 +123,6 @@ Resources:
         Api:
           Type: Api
           Properties:
-            RestApiId: !Ref Api3N
             Path: /
             Method: POST
   # Simple syntax to create a DynamoDB table with a single attribute primary key, more in
