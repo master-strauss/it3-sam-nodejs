@@ -67,8 +67,12 @@ Resources:
             RestApiId: !Ref Api3N
             Path: /
             Method: GET
-            RequestParameters:
-              - method.request.header.Authorization
+            ResponseParameters:
+              gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
+              gatewayresponse.header.Access-Control-Allow-Headers: "'*'"
+            ResponseType: MISSING_AUTHENTICATION_TOKEN
+            RestApiId: !Ref RestApi
+            StatusCode: '404'
 
   # Each Lambda function is defined by properties:
   # https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
