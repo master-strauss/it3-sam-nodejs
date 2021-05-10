@@ -97,7 +97,7 @@ Resources:
         - AttributeDataType: String
           Name: email
           Required: false
-
+ ####
   # Cognito User Pool Client for API Gateway
   CognitoUserPoolClient3N:
     Type: AWS::Cognito::UserPoolClient
